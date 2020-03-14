@@ -1,6 +1,7 @@
 import numpy as np
 import scipy.special
 
+
 # definition of neural network
 class neuralNetwork:
 
@@ -24,7 +25,7 @@ class neuralNetwork:
         # advanced way of definition matrix of weight coefficients
         # we take normal distribution with center in 0 and scale of 1/sqrt(node)
         self.wih = np.random.normal(0.0, pow(self.hnodes, -0.5), (self.hnodes, self.inodes))
-        self.woh = np.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
+        self.who = np.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
 
         # using of sigmoid like activation function
         self.activation_function = lambda x: scipy.special.expit(x)
@@ -46,15 +47,13 @@ class neuralNetwork:
         hidden_outputs = self.activation_function(hidden_inputs)
 
         # calculate input signals for output slice
-        hidden_inputs = np.dot(self.who, hidden_outputs)
+        final_inputs = np.dot(self.who, hidden_outputs)
         # calculate output signals for output slice
-        hidden_outputs = self.activation_function(final_inputs)
-
-
+        final_outputs = self.activation_function(final_inputs)
+        return final_outputs
 
 
 # main code
-
 input_nodes = 3
 hidden_nodes = 3
 output_nodes = 3
