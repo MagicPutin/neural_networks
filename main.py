@@ -1,4 +1,5 @@
 import numpy as np
+# library scipy with sigmoid expit()
 import scipy.special
 
 
