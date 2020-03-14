@@ -35,9 +35,20 @@ class neuralNetwork:
         pass
 
     # questioner of nn
-    def query(self):
+    def query(self, inputs_list):
+        # change input massive into 2dim massive
+        inputs = np.array(inputs_list, ndmin=2).T
+
+        # calculate input signals for hidden slice
         # scalar matrix multiplication
         hidden_inputs = np.dot(self.wih, inputs)
+        # calculate output signals for hidden slice
+        hidden_outputs = self.activation_function(hidden_inputs)
+
+        # calculate input signals for output slice
+        hidden_inputs = np.dot(self.who, hidden_outputs)
+        # calculate output signals for output slice
+        hidden_outputs = self.activation_function(final_inputs)
 
 
 
