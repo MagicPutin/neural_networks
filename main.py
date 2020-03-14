@@ -1,5 +1,5 @@
 import numpy as np
-
+import scipy.special
 
 # definition of neural network
 class neuralNetwork:
@@ -25,6 +25,9 @@ class neuralNetwork:
         # we take normal distribution with center in 0 and scale of 1/sqrt(node)
         self.wih = np.random.normal(0.0, pow(self.hnodes, -0.5), (self.hnodes, self.inodes))
         self.woh = np.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
+
+        # using of sigmoid like activation function
+        self.activation_function = lambda x: scipy.special.expit(x)
         pass
 
     # train of nn
@@ -33,7 +36,10 @@ class neuralNetwork:
 
     # questioner of nn
     def query(self):
-        pass
+        # scalar matrix multiplication
+        hidden_inputs = np.dot(self.wih, inputs)
+
+
 
 
 # main code
