@@ -1,6 +1,8 @@
 import numpy as np
 # library scipy with sigmoid expit()
-import scipy.special
+
+# don't use, scipy can't install
+# import scipy.special
 
 
 # definition of neural network
@@ -29,7 +31,7 @@ class neuralNetwork:
         self.who = np.random.normal(0.0, pow(self.onodes, -0.5), (self.onodes, self.hnodes))
 
         # using of sigmoid like activation function
-        self.activation_function = lambda x: scipy.special.expit(x)
+        self.activation_function = lambda x: 1/(1 + np.exp(-x))
         pass
 
     # train of nn
