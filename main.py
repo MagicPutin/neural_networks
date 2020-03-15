@@ -4,6 +4,7 @@ import numpy as np
 # don't use, scipy can't install
 # import scipy.special
 
+#test commit
 
 # definition of neural network
 class neuralNetwork:
